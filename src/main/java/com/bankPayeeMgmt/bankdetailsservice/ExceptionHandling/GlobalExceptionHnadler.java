@@ -22,6 +22,11 @@ public class GlobalExceptionHnadler extends ResponseEntityExceptionHandler{
 		return new ResponseEntity<>(errorResponse,HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
+	@ExceptionHandler(MyExc.class)
+	public ResponseEntity<?> MyEsception() {
+		return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
 	@Override
 	protected final ResponseEntity<Object> handleMethodArgumentNotValid(final MethodArgumentNotValidException e,                                     
             final HttpHeaders headers, 
@@ -29,6 +34,9 @@ public class GlobalExceptionHnadler extends ResponseEntityExceptionHandler{
             final WebRequest request) {
 			errorResponse.setErrorCode("ValidationError");
 			errorResponse.setErrorMessage(e.getMessage());
+			
+			
+			
 			return new ResponseEntity<>(errorResponse,HttpStatus.BAD_REQUEST);
 
 		}

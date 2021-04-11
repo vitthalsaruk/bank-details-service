@@ -20,7 +20,7 @@ public class BankDetailsController {
 	private BankDetailsService bankDetailsService;
 	
 	@GetMapping("/{payeeAccountNumber}")
-	public ResponseEntity<?> getBankById(@Valid @PathVariable @Size(max = 10,min = 5) String payeeAccountNumber) {
+	public ResponseEntity<?> getBankById(@PathVariable String payeeAccountNumber) {
 		
 		return bankDetailsService.getBankDetailsById(payeeAccountNumber); 
 		 		
