@@ -2,10 +2,12 @@ package com.bankPayeeMgmt.bankdetailsservice.service;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+
 import com.bankPayeeMgmt.bankdetailsservice.model.BankDetails;
 
 public interface BankDetailsService {
 	List<BankDetails> getAllBankDetails();
-	BankDetails getBankDetailsById(String payeeAccountNumber);
+	ResponseEntity<?> getBankDetailsById(String payeeAccountNumber);
 
 }
